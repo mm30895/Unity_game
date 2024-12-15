@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !PlayerMovement.dialogue)
         {
             StartCoroutine(SwordAttack());
         }

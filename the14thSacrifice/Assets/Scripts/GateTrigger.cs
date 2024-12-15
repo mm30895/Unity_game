@@ -13,21 +13,26 @@ public class GateTrigger : MonoBehaviour
     public float maxOpenAngle = 80f;
 
     private bool isPlayerInside = false;
+    private bool isGateOpen = false;
     private float currentAngleL = 0f;
     private float currentAngleR = 0f;
 
     private Quaternion initialRotationL;
     private Quaternion initialRotationR;
 
+    public GameObject eCanvas;
+
     void Start()
     {
         initialRotationL = PivotL.localRotation;
         initialRotationR = PivotR.localRotation;
+        eCanvas.SetActive(false);
+
     }
 
     void Update()
     {
-        if (isPlayerInside)
+        if (isGateOpen)
         {
             // increase the rotation up to max angle
             currentAngleL = Mathf.MoveTowards(currentAngleL, -maxOpenAngle, openSpeed * Time.deltaTime);
@@ -43,12 +48,18 @@ public class GateTrigger : MonoBehaviour
         // Apply the rotations to the gates while preserving their initial rotation
         PivotL.localRotation = initialRotationL * Quaternion.Euler(0, currentAngleL, 0);
         PivotR.localRotation = initialRotationR * Quaternion.Euler(0, currentAngleR, 0);
+
+        if (isPlayerInside && Input.GetKeyDown(KeyCode.E))
+        {
+            isGateOpen = !isGateOpen; // Toggle the gate's state
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.transform == player)
-        {
+        {   
+            eCanvas.SetActive(true);
             //Debug.Log("Player entered trigger");
             isPlayerInside = true; // Start opening gates
         }
@@ -58,6 +69,7 @@ public class GateTrigger : MonoBehaviour
     {
         if (other.transform == player)
         {
+            eCanvas.SetActive(false);
             //Debug.Log("Player exited trigger");
             isPlayerInside = false; // Start closing gates
         }
