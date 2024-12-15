@@ -22,7 +22,7 @@ RGTi 2nd seminar;  THE 14TH SACRIFISE
 - 🔲 Training dummy for combat training  
 - ✅ Gate with trigger animation (opening)
     - gate still needs modeling 
-- 🔲 Interactable sign explaining the story *(Press 'E' to interact)*  *[Milan]*
+- ✅ Interactable NPC explaining the story *(Press 'E' to interact)*
 - 🔲 Maze behind the gate under the mountain  
 - 🔲 Skyboxes for tutorial and maze  
 - 🔲 Maze lights/torches *(animated if possible, with emission lighting)*  
