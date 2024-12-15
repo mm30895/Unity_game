@@ -5,14 +5,15 @@ RGTi 2nd seminar;  THE 14TH SACRIFISE
 
 ### 🧑‍🎮 **Player**
 - ✅ First-Person Controller  
-- ✅ Sword attack animation
-    - multiple attacks.. stil needs ajusting
-- 🔲 Animated body holding the sword  
+- ✅ Sword attack animation (Key.R for animation)
+    - 🔲 multiple attacks.. stil needs ajusting
+- ✅ Animated body holding the sword
+    - 🔲 still needs tweeking a bit
 - ✅ Torch and lighting *(possible particle system)*  
 - ✅ Animated torch with particle system  
 - 🔲 Camera shake
     - ✅ walking
-    - 🔲 attack
+    - ✅ attack
     - 🔲 damage taken
 
 ---
@@ -23,6 +24,7 @@ RGTi 2nd seminar;  THE 14TH SACRIFISE
 - ✅ Gate with trigger animation (opening)
     - gate still needs modeling 
 - ✅ Interactable NPC explaining the story *(Press 'E' to interact)*
+      -✅ animated
 - 🔲 Maze behind the gate under the mountain  
 - 🔲 Skyboxes for tutorial and maze  
 - 🔲 Maze lights/torches *(animated if possible, with emission lighting)*  
