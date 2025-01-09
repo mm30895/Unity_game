@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public AudioSource WalkingSF;
+
     bool isGrounded;
 
     static public bool dialogue = false;
@@ -55,5 +57,21 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (isGrounded && (x != 0 || z != 0))
+        {
+            if (!WalkingSF.isPlaying)
+            {
+                WalkingSF.Play();
+                Console.WriteLine("footsteps");
+            }
+        }
+        else
+        {
+            if (WalkingSF.isPlaying)
+            {
+                WalkingSF.Stop();
+            }
+        }
     }
 }
