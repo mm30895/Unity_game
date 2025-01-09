@@ -68,8 +68,9 @@ RGTi 2nd seminar;  THE 14TH SACRIFISE
 ---
 
 ### 🔊 **Audio**
-- 🔲 Walking, attack, damage taken, death sounds  
+- ✅ Walking sounds
+- 🔲 attack, damage taken, death sounds  
 - 🔲 Chest opening, sword pickup *(potion pickup, potion drinking)*  
-- 🔲 Combat and environmental music *(possible distinct tutorial music)*  
+- ✅ Combat and environmental music *(possible distinct tutorial music)*  
 
 ---
