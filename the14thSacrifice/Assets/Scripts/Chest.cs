@@ -48,10 +48,12 @@ public class Chest : MonoBehaviour
         if (playerDetection && Input.GetKeyDown(KeyCode.E) && !PlayerMovement.dialogue)
         {
             Debug.Log("chest opens");
+            
             particles.SetActive(true);
             animator.SetTrigger("open");
-            swordAnimator.SetTrigger("open");
-            chestopened = true;
+            Invoke("swordShow", 2);
+            
+            
             chestSF.Play();
         }
         
@@ -71,5 +73,11 @@ public class Chest : MonoBehaviour
     {
         playerDetection = false;
         eCanvas.SetActive(false);
+    }
+
+    private void swordShow() {
+        chestSword.SetActive(true);
+        swordAnimator.SetTrigger("open");
+        chestopened = true;
     }
 }

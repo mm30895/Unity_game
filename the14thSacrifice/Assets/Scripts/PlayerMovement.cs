@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        Debug.Log(x);
+        //Debug.Log(x);
 
         if (x != 0 || z != 0)
         {
