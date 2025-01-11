@@ -45,13 +45,13 @@ public class GateTrigger : MonoBehaviour
             currentAngleR = Mathf.MoveTowards(currentAngleR, 0f, openSpeed * Time.deltaTime);
         }
 
-        // Apply the rotations to the gates while preserving their initial rotation
+        // preserve initial rotation
         PivotL.localRotation = initialRotationL * Quaternion.Euler(0, currentAngleL, 0);
         PivotR.localRotation = initialRotationR * Quaternion.Euler(0, currentAngleR, 0);
 
         if (isPlayerInside && Input.GetKeyDown(KeyCode.E))
         {
-            isGateOpen = !isGateOpen; // Toggle the gate's state
+            isGateOpen = !isGateOpen;
         }
     }
 
@@ -60,8 +60,7 @@ public class GateTrigger : MonoBehaviour
         if (other.transform == player)
         {   
             eCanvas.SetActive(true);
-            //Debug.Log("Player entered trigger");
-            isPlayerInside = true; // Start opening gates
+            isPlayerInside = true;
         }
     }
 
@@ -70,8 +69,7 @@ public class GateTrigger : MonoBehaviour
         if (other.transform == player)
         {
             eCanvas.SetActive(false);
-            //Debug.Log("Player exited trigger");
-            isPlayerInside = false; // Start closing gates
+            isPlayerInside = false;
         }
     }
 }

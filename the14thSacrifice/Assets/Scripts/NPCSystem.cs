@@ -37,6 +37,7 @@ public class NPCSystem : MonoBehaviour
         GameObject templateClone = Instantiate(dTemplate, dTemplate.transform);
         templateClone.transform.parent = canvas.transform;
         templateClone.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = text;
+        templateClone.SetActive(false);
     }
 
     void ClearOldDialogue()

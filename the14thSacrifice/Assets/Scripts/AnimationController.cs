@@ -15,18 +15,20 @@ public class AnimationController : MonoBehaviour
     {
         bool isWalking = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
         bool isRunning = isWalking && Input.GetKey(KeyCode.LeftShift);
+        bool isAttacking = Input.GetButtonDown("Fire1");
 
         // Set Walking and Running states
         animator.SetBool("Walking", isWalking);
         animator.SetBool("Running", isRunning);
+        animator.SetBool("Attacking", isAttacking);
 
-        // Handle Attack animation
-        if (Input.GetKey(KeyCode.R))
-        {
-            animator.SetBool("Attacking", true);
-        }
-        else {
-            animator.SetBool("Attacking", false);
-        }
+        //// Handle Attack animation
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    animator.SetBool("Attacking", true);
+        //}
+        //else {
+        //    animator.SetBool("Attacking", false);
+        //}
     }
 }

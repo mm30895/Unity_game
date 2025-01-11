@@ -13,7 +13,7 @@ public class NextDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && transform.childCount > 1) {
+        if (Input.GetMouseButton(0) && transform.childCount > 1) {
             if (PlayerMovement.dialogue)
             {
                 transform.GetChild(index).gameObject.SetActive(true);
@@ -24,7 +24,7 @@ public class NextDialogue : MonoBehaviour
                 }
             }
             else {
-                for (int i = 2; i < transform.childCount; i++)
+                for (int i = 1; i < transform.childCount; i++)
                 {
                     Destroy(transform.GetChild(i).gameObject);
                 }
