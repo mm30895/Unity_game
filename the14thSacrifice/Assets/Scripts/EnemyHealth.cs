@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     public bool isDead = false;
     public HealthBar healthBar;
     public GameObject Bar;
+    public WinScreenManager winScreenManager;
+
 
     private void Start()
     {
@@ -34,11 +36,12 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        animator.SetBool("isDead", true);
+        animator.SetBool("isDead", true); 
         Debug.Log("Enemy died!");
         Bar.SetActive(false);
         healthBar.SetHP(maxHealth);
-
+        
         Destroy(gameObject.GetComponent<Collider>()); 
+    winScreenManager.show();
     }
 }

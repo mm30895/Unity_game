@@ -5,12 +5,16 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     public PauseMenu pauseMenu;
+    public WinScreenManager winScreenManager;
     private float xRotation = 0f;
 
     void Update()
     {
-        if (pauseMenu.isPaused || PlayerMovement.dialogue)
+        if (pauseMenu.isPaused || PlayerMovement.dialogue || winScreenManager.shown)
         {
+            if(winScreenManager.shown){
+                Debug.Log("win shown");
+            }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             return;
