@@ -43,22 +43,24 @@ public class MinotaurAI : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         // logic for music switching
-        if (!isPlayerInAttackRange)
-        {
-            if (distanceToPlayer <= attackRange)
-            {
-                StartCoroutine(FadeOut(BackgroundMusic, 0.5f));
-                StartCoroutine(FadeIn(CombatMusic, 0.5f));
-            }
-        }
-        else
-        {
-            if (distanceToPlayer > attackRange)
-            {
-                StartCoroutine(FadeOut(CombatMusic, 0.5f));
-                StartCoroutine(FadeIn(BackgroundMusic, 0.5f));
-            }
-        }
+        //if (!isPlayerInAttackRange)
+        //{
+        //    if (distanceToPlayer <= attackRange)
+        //    {
+        //        StartCoroutine(FadeOut(BackgroundMusic, 0.5f));
+        //        StartCoroutine(FadeIn(CombatMusic, 0.5f));
+        //    }
+        //}
+        //else
+        //{
+        //    if (distanceToPlayer > attackRange)
+        //    {
+        //        StartCoroutine(FadeOut(CombatMusic, 0.5f));
+        //        StartCoroutine(FadeIn(BackgroundMusic, 0.5f));
+        //    }
+        //}
+
+        // i changed this to be combat music when he loks in untill he dies
 
         isPlayerInAttackRange = distanceToPlayer <= attackRange;
 
@@ -66,6 +68,8 @@ public class MinotaurAI : MonoBehaviour
         {
             hasPlayerBeenDetected = true;
             Bar.SetActive(true);
+            StartCoroutine(FadeOut(BackgroundMusic, 0.5f));
+            StartCoroutine(FadeIn(CombatMusic, 0.5f));
         }
 
         if (hasPlayerBeenDetected && !isPlayerInAttackRange)
@@ -119,6 +123,8 @@ public class MinotaurAI : MonoBehaviour
         SetAnimationState(walking: false, attacking: false); 
         animator.SetBool("isDead", true);
         Debug.Log("Minotaur has died.");
+        StartCoroutine(FadeOut(CombatMusic, 0.5f));
+        StartCoroutine(FadeIn(BackgroundMusic, 0.5f));
 
         this.enabled = false;
     }

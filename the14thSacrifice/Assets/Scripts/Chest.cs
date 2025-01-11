@@ -5,11 +5,15 @@ public class Chest : MonoBehaviour
 
     public GameObject eCanvas;
     public Animator animator;
+    public Animator swordAnimator;
 
     public SphereCollider collider;
 
+    public GameObject chestSword;
+
     public GameObject boringSword;
     public GameObject coolSword;
+    public GameObject particles;
 
     public PlayerAttack Player;
 
@@ -36,6 +40,7 @@ public class Chest : MonoBehaviour
             eCanvas.SetActive(false);
             coolSword.SetActive(true);
             boringSword.SetActive(false);
+            chestSword.SetActive(false);
             Player.setDamage(20);
             Destroy(collider);
             swordSF.Play();
@@ -43,7 +48,9 @@ public class Chest : MonoBehaviour
         if (playerDetection && Input.GetKeyDown(KeyCode.E) && !PlayerMovement.dialogue)
         {
             Debug.Log("chest opens");
+            particles.SetActive(true);
             animator.SetTrigger("open");
+            swordAnimator.SetTrigger("open");
             chestopened = true;
             chestSF.Play();
         }

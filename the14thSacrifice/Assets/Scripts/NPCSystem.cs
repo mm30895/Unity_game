@@ -26,6 +26,9 @@ public class NPCSystem : MonoBehaviour
             NewDialogue("Hello");
             NewDialogue("this is a test");
             NewDialogue("hola muchcho");
+            NewDialogue("Hello2");
+            NewDialogue("this is a test2");
+            NewDialogue("hola muchcho2");
 
             canvas.transform.GetChild(1).gameObject.SetActive(true);
 

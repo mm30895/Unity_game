@@ -47,6 +47,8 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy died!");
         Bar.SetActive(false);
         healthBar.SetHP(maxHealth);
+        StartCoroutine(FadeOut(CombatMusic, 0.5f));
+        StartCoroutine(FadeIn(BackgroundMusic, 0.5f));
 
         Destroy(gameObject.GetComponent<Collider>());
         winScreenManager.show();
