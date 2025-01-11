@@ -119,7 +119,7 @@ public class MinotaurAI : MonoBehaviour
         SetAnimationState(walking: false, attacking: false); 
         animator.SetBool("isDead", true);
         Debug.Log("Minotaur has died.");
-        
+
         this.enabled = false;
     }
 
