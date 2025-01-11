@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public bool isDead = false;
     public HealthBar healthBar;
     public GameObject Bar;
-    public WinScreenManager winScreenManager;
+    public WinScreen winScreen;
 
 
     public AudioSource BackgroundMusic;
@@ -17,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
     public AudioSource screamSF;
     public AudioSource deathSF;
 
+    public bool win = false;
+    
     private void Start()
     {
         currentHealth = maxHealth;
@@ -51,7 +54,8 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(FadeIn(BackgroundMusic, 0.5f));
 
         Destroy(gameObject.GetComponent<Collider>());
-        winScreenManager.show();
+        win = true;
+        SceneManager.LoadScene(3);
         StartCoroutine(PlayDeathAudioSequence());
     }
 

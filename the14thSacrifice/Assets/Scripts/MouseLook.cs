@@ -5,16 +5,14 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     public PauseMenu pauseMenu;
-    public WinScreenManager winScreenManager;
+    public EnemyHealth EnemyHealth;
+    public PlayerHealth PlayerHealth;
     private float xRotation = 0f;
 
     void Update()
     {
-        if (pauseMenu.isPaused || PlayerMovement.dialogue || winScreenManager.shown)
+        if (pauseMenu.isPaused || PlayerMovement.dialogue || EnemyHealth.win || PlayerHealth.dead)
         {
-            if(winScreenManager.shown){
-                Debug.Log("win shown");
-            }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             return;
