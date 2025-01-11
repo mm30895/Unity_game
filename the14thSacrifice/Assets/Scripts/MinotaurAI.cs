@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -25,6 +26,9 @@ public class MinotaurAI : MonoBehaviour
     private bool hasPlayerBeenDetected = false;
     private float lastAttackTime = 0;
 
+    public AudioSource BackgroundMusic;
+    public AudioSource CombatMusic;
+
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -37,6 +41,25 @@ public class MinotaurAI : MonoBehaviour
         if (enemyHealth.isDead) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        // logic for music switching
+        if (!isPlayerInAttackRange)
+        {
+            if (distanceToPlayer <= attackRange)
+            {
+                StartCoroutine(FadeOut(BackgroundMusic, 0.5f));
+                StartCoroutine(FadeIn(CombatMusic, 0.5f));
+            }
+        }
+        else
+        {
+            if (distanceToPlayer > attackRange)
+            {
+                StartCoroutine(FadeOut(CombatMusic, 0.5f));
+                StartCoroutine(FadeIn(BackgroundMusic, 0.5f));
+            }
+        }
+
         isPlayerInAttackRange = distanceToPlayer <= attackRange;
 
         if (!hasPlayerBeenDetected && distanceToPlayer <= visionRange && combatZone.entered)
@@ -107,5 +130,34 @@ public class MinotaurAI : MonoBehaviour
             animator.SetBool("walking", walking);
             animator.SetBool("attacking", attacking);
         }
+    }
+
+    private IEnumerator FadeOut(AudioSource audioSource, float duration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
+    private IEnumerator FadeIn(AudioSource audioSource, float duration)
+    {
+        audioSource.Play();
+        audioSource.volume = 0f;
+        float targetVolume = 1f;
+
+        while (audioSource.volume < targetVolume)
+        {
+            audioSource.volume += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
     }
 }

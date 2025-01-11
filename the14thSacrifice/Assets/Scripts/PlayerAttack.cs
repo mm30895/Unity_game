@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour
 
     private Animator animator;
 
+    public AudioSource stabSF;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -36,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         Debug.Log("Just attacked");
+        stabSF.Play();
         Collider[] enemiesHit = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
 
         foreach (Collider enemy in enemiesHit)

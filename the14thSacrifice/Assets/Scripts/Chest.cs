@@ -16,6 +16,10 @@ public class Chest : MonoBehaviour
     private bool chestopened = false;
 
     bool playerDetection = false;
+
+    public AudioSource chestSF;
+    public AudioSource swordSF;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,13 +38,14 @@ public class Chest : MonoBehaviour
             boringSword.SetActive(false);
             Player.setDamage(20);
             Destroy(collider);
+            swordSF.Play();
         }
         if (playerDetection && Input.GetKeyDown(KeyCode.E) && !PlayerMovement.dialogue)
         {
             Debug.Log("chest opens");
             animator.SetTrigger("open");
             chestopened = true;
-            
+            chestSF.Play();
         }
         
 

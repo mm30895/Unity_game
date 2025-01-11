@@ -19,15 +19,15 @@ public class CombatZoneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        BackgroundMusic.Stop();
-        CombatMusic.Play();
+        //BackgroundMusic.Stop();
+        //CombatMusic.Play();
         entered = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        CombatMusic.Stop();
-        BackgroundMusic.Play();
+        //CombatMusic.Stop();
+        //BackgroundMusic.Play();
         entered = false;
     }
 }

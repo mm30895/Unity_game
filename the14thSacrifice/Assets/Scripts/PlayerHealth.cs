@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public HealthBar health;
 
+    public AudioSource ScreamSF;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -17,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         health.SetHP(currentHealth);
         Debug.Log("Player took " + damage + " damage. Current health: " + currentHealth);
+        ScreamSF.Play();
 
         if (currentHealth <= 0)
         {
