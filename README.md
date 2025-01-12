@@ -19,58 +19,58 @@ RGTi 2nd seminar;  THE 14TH SACRIFISE
 ---
 
 ### 🌄 **Scene**
-- 🔲 Tutorial area terrain  
+- ✅ Tutorial area terrain  
 - 🔲 Training dummy for combat training  
 - ✅ Gate with trigger animation (opening)
     - gate still needs modeling 
 - ✅ Interactable NPC explaining the story *(Press 'E' to interact)*
       -✅ animated
-- 🔲 Maze behind the gate under the mountain  
+- ✅ Maze behind the gate under the mountain  
 - 🔲 Skyboxes for tutorial and maze  
-- 🔲 Maze lights/torches *(animated if possible, with emission lighting)*  
+- ✅ Maze lights/torches *(animated if possible, with emission lighting)*  
 - ✅ Environmental particles *(e.g., dust)*  
 
 ---
 
 ### 🛠️ **Modeling**
 - 🔲 Environment assets *(e.g., skeleton trees for tutorial area)*  
-- 🔲 Minion Satyr
+- ✅ Minion Satyr
 - 🔲 Gate
 
 ---
 
 ### 💎 **Chest**
-- 🔲 Collider *(Press 'E' to open)*  
-- 🔲 Sword pickup *(possible particles, sword rotation, Press 'E' to pick up)*  
+- ✅ Collider *(Press 'E' to open)*  
+- ✅ Sword pickup *(possible particles, sword rotation, Press 'E' to pick up)*  
 - 🔲 HP potions *(in other chests, same logic as sword chest)*  
 
 ---
 
 ### 🐂 **Minotaur**
-- 🔲 Rigging and animations:
-  - 🔲 Attack  
-  - 🔲 Death  
-- 🔲 AI pathfinding and attacking  
+- ✅ Rigging and animations:
+  - ✅ Attack  
+  - ✅ Death  
+- ✅ AI pathfinding and attacking  
 
 ---
 
 ### 📊 **UI**
-- 🔲 Death screen  
-- 🔲 Win screen  
-- 🔲 Player health bar  
+- ✅ Death screen  
+- ✅ Win screen  
+- ✅ Player health bar  
 - 🔲 Possible inventory for potions  
-- 🔲 Enemy health bars  
+- ✅ Enemy health bars  
 - 🔲 Possible minimap for easier navigation  
-- 🔲 Possible menu *(e.g., sound settings)*
+- ✅ Possible menu *(e.g., sound settings)*
     - ✅ play
-    - 🔲 settings
+    - ✅ settings
 
 ---
 
 ### 🔊 **Audio**
 - ✅ Walking sounds
-- 🔲 attack, damage taken, death sounds  
-- 🔲 Chest opening, sword pickup *(potion pickup, potion drinking)*  
+- ✅ attack, damage taken, death sounds  
+- ✅ Chest opening, sword pickup *(potion pickup, potion drinking)*  
 - ✅ Combat and environmental music *(possible distinct tutorial music)*  
 
 ---
