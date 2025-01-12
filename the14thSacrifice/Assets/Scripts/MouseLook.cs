@@ -11,7 +11,7 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        if (pauseMenu.isPaused || PlayerMovement.dialogue || EnemyHealth.win || PlayerHealth.dead)
+        if (pauseMenu.isPaused || PlayerMovement.dialogue )
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

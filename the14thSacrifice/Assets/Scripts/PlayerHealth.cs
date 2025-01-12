@@ -34,7 +34,19 @@ public class PlayerHealth : MonoBehaviour
     {
         dead = true;
         Debug.Log("Player died!");
-        SceneManager.LoadScene(3);
+
+
         // Add player death logic (e.g., respawn or game over)
+        Invoke("LostScene", 3);
+    }
+    private void LostScene() {
+        SceneManager.LoadScene(4);
+    }
+    public void DieByMinion() {
+        Invoke("LoadOtherScene", 3);
+    }
+    private void LoadOtherScene()
+    {
+        SceneManager.LoadScene(5);
     }
 }

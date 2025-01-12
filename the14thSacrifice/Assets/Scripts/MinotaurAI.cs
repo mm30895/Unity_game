@@ -21,6 +21,7 @@ public class MinotaurAI : MonoBehaviour
     public float attackCooldown = 2f;
     public int attackDamage = 20;
     public int maxHealth = 100;
+    public bool boss = false;
 
     private bool isPlayerInAttackRange = false;
     private bool hasPlayerBeenDetected = false;
@@ -103,13 +104,19 @@ public class MinotaurAI : MonoBehaviour
             Debug.Log("Minotaur attacks the player!");
             animator.SetBool("attacking", true);
 
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(attackDamage);
-            }
+            Invoke("attackLater", 2);
 
             lastAttackTime = Time.time;
+        }
+    }
+    private void attackLater() {
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage);
+        }
+        if (playerHealth.dead && !boss) {
+            playerHealth.DieByMinion();
         }
     }
 

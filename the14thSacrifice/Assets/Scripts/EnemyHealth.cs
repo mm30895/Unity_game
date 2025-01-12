@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public HealthBar healthBar;
     public GameObject Bar;
     public WinScreen winScreen;
+    public bool isBoss = false;
 
 
     public AudioSource BackgroundMusic;
@@ -55,8 +56,15 @@ public class EnemyHealth : MonoBehaviour
 
         Destroy(gameObject.GetComponent<Collider>());
         win = true;
-        SceneManager.LoadScene(3);
         StartCoroutine(PlayDeathAudioSequence());
+        if (isBoss)
+        {
+            Invoke("WinScene", 3);
+        }
+    }
+    private void WinScene()
+    {
+        SceneManager.LoadScene(3);
     }
 
     private IEnumerator PlayDeathAudioSequence()
