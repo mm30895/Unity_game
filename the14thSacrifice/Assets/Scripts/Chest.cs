@@ -41,7 +41,7 @@ public class Chest : MonoBehaviour
             coolSword.SetActive(true);
             boringSword.SetActive(false);
             chestSword.SetActive(false);
-            Player.setDamage(20);
+            Player.setDamage(25);
             Destroy(collider);
             swordSF.Play();
         }
